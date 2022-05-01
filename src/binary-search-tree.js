@@ -57,7 +57,7 @@ class BinarySearchTree {
   }
 
   find(data) {
-    return this.findIn(this.rootCurrent, data);
+    return findIn(this.rootCurrent, data);
     function findIn(node,data) {
       if(!node) {
         return null;
@@ -69,7 +69,6 @@ class BinarySearchTree {
       }
       return node;
     }
-    
   }
 
   remove(data) {
@@ -83,10 +82,10 @@ class BinarySearchTree {
         node.left = removeIn(node.left, data);
         return node;
       } else if(node.data < data) {
-        node.right = removeIn(node.right,data);
+        node.right = removeIn(node.right, data);
         return node;
       } else {
-        if(!node.left && node.right) {
+        if(!node.left && !node.right) {
           return null;
         }
       }
